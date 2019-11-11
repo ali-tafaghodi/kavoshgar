@@ -60,23 +60,4 @@
   <!--================Header Menu Area =================-->
 
 
-  <main class="side-main">
-    <!--================ Hero sm Banner start =================-->
-    <section class="hero-banner mb-30px" >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7">
-            <div class="hero-banner__img">
-              <img class="img-fluid" src="<?php echo PUBLIC_PATH; ?>site/img/eye.png" alt="">
-            </div>
-          </div>
-          <div class="col-lg-5 pt-5">
-            <div class="hero-banner__content">
-              <h1>کاوشگر اپتیک </h1>
-              <p>مطالب نشریه در بخش های اپتیک، بینایی، عینک سازی، تازه های علم و تکنولوژی و معلومات عمومی تقدیم حضور خوانندگان می شود. مخاطبین اصلی و تخصصی مجله، عینک سازان، بینایی سنج ها و چشم پزشکان می باشند. لیکن مطالب به گونه ای ارائه گردیده که برای عموم جذاب و مفید باشد </p>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+ 

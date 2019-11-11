@@ -6,11 +6,14 @@ class Home extends MY_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('home/m_home');
     }
 
     function index()
     {
-    $this->loadSiteView('Home/Home');
+
+   $data=$this->m_home->cat();
+    $this->loadSiteView('Home/Home', array('data' => $data ));
     }
 
 }

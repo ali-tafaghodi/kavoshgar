@@ -289,23 +289,23 @@
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon-book"></i>
-                        <span>دسته بندی محصولات</span>
+                        <span>دسته بندی مطالب</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="<?php echo site_url('panel/procat/list_procat');?>">لیست منوها</a></li>
-                        <li><a class="" href="<?php echo site_url('panel/procat/index');?>">افزودن منو جدید</a></li>
+                        <li><a class="" href="<?php echo base_url('panel/category/category/list_category');?>">لیست دسته بندی مطالب</a></li>
+                        <!-- <li><a class="" href="<?php echo site_url('panel/procat/index');?>">افزودن منو جدید</a></li> -->
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon-cogs"></i>
-                        <span>محصولات</span>
+                        <span>پست ها</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="<?php echo site_url('panel/pro/list_pro');?>">لیست محصولات</a></li>
-                        <li><a class="" href="<?php echo site_url('panel/pro/index');?>">افزودن محصول جدید</a></li>
+                        <li><a class="" href="<?php echo site_url('panel/post/list_post/list');?>">لیست پست ها</a></li>
+                        <li><a class="" href="<?php echo site_url('panel/post/list_post/index');?>">افزودن پست جدید </a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -333,4 +333,5 @@
     </aside>
     <!--sidebar end-->
     <!--main content start-->
-
+    <section id="main-content">
+            <section class="wrapper">

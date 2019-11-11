@@ -1,5 +1,8 @@
 <!--main content end-->
 </section>
+    </section>
+    <!--main content end-->
+</section>
 
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="<?php echo PUBLIC_PATH; ?>panel/js/jquery.js"></script>
