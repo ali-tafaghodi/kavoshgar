@@ -20,15 +20,15 @@
   </section>
 <section class="section-margin">
     <div class="container">
-        <div class="section-intro pb-85px text-center">
-            <h2 class="section-intro__title">کاوشگر اپتیک</h2>
-            <p class="section-intro__subtitle">مطالب نشریه در بخش های اپتیک، بینایی، عینک سازی، تازه های علم و تکنولوژی و معلومات عمومی تقدیم حضور خوانندگان می شود. مخاطبین اصلی و تخصصی مجله، عینک سازان، بینایی سنج ها و چشم پزشکان می باشند. لیکن مطالب به گونه ای ارائه گردیده که برای عموم جذاب و مفید باشد</p>
-        </div>
+<!--        <div class="section-intro pb-85px text-center">-->
+<!--            <h2 class="section-intro__title">کاوشگر اپتیک</h2>-->
+<!--            <p class="section-intro__subtitle">مطالب نشریه در بخش های اپتیک، بینایی، عینک سازی، تازه های علم و تکنولوژی و معلومات عمومی تقدیم حضور خوانندگان می شود. مخاطبین اصلی و تخصصی مجله، عینک سازان، بینایی سنج ها و چشم پزشکان می باشند. لیکن مطالب به گونه ای ارائه گردیده که برای عموم جذاب و مفید باشد</p>-->
+<!--        </div>-->
 
         <div class="container">
             <div class="row">
 
-                <?php foreach ($data as $key => $value) {
+                <?php foreach ($cat as $key => $value) {
                 ?>
                 <div class="col-lg-4">
                     <a href="<?php echo base_url("site/blog/post/index/{$value['chid']}"); ?>">

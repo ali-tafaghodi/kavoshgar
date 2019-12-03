@@ -53,7 +53,9 @@ $route['(?i)panel'] = function () {
     header('Location: ' . BASE_URL . 'panel/Dashboard');
 };
 
+
 $route['default_controller'] = 'home';
+//$route['(?i)login'] = 'panel/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

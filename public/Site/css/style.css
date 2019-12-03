@@ -2659,10 +2659,14 @@ h3,
     border-color: #21146a;
     color: #000022
 }
+.button button-header a:hover {
+    color :#fff !important;
+}
 
 .button-header {
     padding: 12px 40px
 }
+
 
 .button.bg:hover {
     border-color: #fff;
@@ -2827,6 +2831,12 @@ h3,
     outline: none;
     box-shadow: none
 }
+.footer-area .single-footer-widget .click-btn:hover {
+
+        background-color: #21146a;
+        /* border-color: #00022; */
+        color: #fff
+    }
 
 @media (max-width: 375px) {
     .footer-area .single-footer-widget .click-btn {

@@ -200,3 +200,21 @@ function persianNumber($value)
 	return str_replace($number, $persian, $value);
 
 }
+
+function _redirect($path , $type = 'panel')
+
+{
+
+    if ($type == 'panel') {
+
+        header("Location: " . BASE_URL . $path);
+
+    }
+
+    else {
+
+        header("Location: " . SITE_URL . $path);
+
+    }
+
+}

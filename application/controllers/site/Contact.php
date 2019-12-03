@@ -1,33 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Created by PhpStorm.
+ * User: ali
+ * Date: 12/2/2019
+ * Time: 12:12 AM
+ */
 
-class PostDetail extends MY_Controller
+class Contact extends MY_Controller
 {
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
-         $this->load->model('blog/m_postdetail');
-         $this->load->model('blog/m_post');
+        $this->load->model('contact/m_contact');
     }
-
-
-    function categury($id){
-
-        $data['detailpost']=$this->m_postdetail->DetailPost($id);
-        $data['coment']=$this->m_postdetail->comment_blog($id);
-        $data['count']=$this->m_postdetail->comment_count($id);
-        $data['views']=$this->m_postdetail->ip_count($id);
-        $data['postall']=$this->m_postdetail->postall();
-        $data['catblog']=$this->m_post->categoryBlog();
-        $data['cat']=$this->m_post->category();
-        $data['postend']=$this->m_post->postend();
-
-        $this->loadSiteView('blog/postdetail', $data);
+    function index(){
+        $this->loadSiteView('contact/contact');
     }
-    function insertComment($id){
-
+    function process(){
         $this->load->helper('form');
         $this->load->library('form_validation');
+
+
         $rules = array(
             array(
                 'field' => 'name',
@@ -51,7 +45,7 @@ class PostDetail extends MY_Controller
                     'required' => 'لطفا موضوع را وارد نمایید')
             ),
             array(
-                'field' => 'message',
+                'field' => 'text',
                 'lable' => 'text',
                 'rules' => 'required',
                 'errors' => array(
@@ -60,20 +54,17 @@ class PostDetail extends MY_Controller
         );
 
         $this->form_validation->set_rules($rules);
-        if ($this->form_validation->run() == false)
-        {
-            return;
+        if ($this->form_validation->run() == false) {
+            $this->load->view('site/contact');
         } else {
-            $data['name'] = $this->input->post('name', true);
-            $data['email'] = $this->input->post('email', true);
-            $data['subject'] = $this->input->post('subject', true);
-            $data['message'] = $this->input->post('message', true);
-            $data['blog_id']=$id;
-            $this->m_postdetail->insert_comm($data);
+            $data['name'] = $this->input->post('name',true);
+            $data['email'] = $this->input->post('email',true);
+            $data['subject'] = $this->input->post('subject',true);
+            $data['text'] = $this->input->post('text',true);
+
+
+            $this->m_contact->contact_mail_form($data);
         }
 
-
-
     }
-
 }

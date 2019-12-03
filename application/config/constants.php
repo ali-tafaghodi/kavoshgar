@@ -85,6 +85,9 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
+define('ENCRYPT_KEY','ZdmRcxBYrE5K9GQxTchPMzUwK68jpzyczWTWh3ygzRKpf34vWdVyD9qFEnmhARY43UHqKdjTxknJTjreNepbN23RS88UKqD98FQUrm48SfLUu');
+
+
 // my constant
 define('PUBLIC_PATH', 'http://kavoshgar.com/public/');
 define('BASE_URL', 'http://kavoshgar.com/');

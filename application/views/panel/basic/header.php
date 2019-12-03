@@ -43,81 +43,32 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="icon-tasks"></i>
-                        <span class="badge bg-success">6</span>
+                        <span class="badge bg-success"><?php echo $count_news;?></span>
                     </a>
                     <ul class="dropdown-menu extended tasks-bar">
                         <div class="notify-arrow notify-arrow-green"></div>
                         <li>
-                            <p class="green">شما 6 برنامه در دست کار دارید</p>
+                            <p class="green">شما <?php echo $count_news;?> ثبت نام در خبرنامه دارید</p>
                         </li>
+                        <?php
+                        foreach ($news as $news_list):
+                        ?>
                         <li>
                             <a href="#">
                                 <div class="task-info">
-                                    <div class="desc">پنل مدیریت</div>
-                                    <div class="percent">40%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                        <span class="sr-only">40% Complete (success)</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">بروزرسانی دیتابیس</div>
-                                    <div class="percent">60%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                        <span class="sr-only">60% Complete (warning)</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">برنامه نویسی  IPhone</div>
-                                    <div class="percent">87%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 87%">
-                                        <span class="sr-only">87% Complete</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">برنامه موبایل</div>
-                                    <div class="percent">33%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 33%">
-                                        <span class="sr-only">33% Complete (danger)</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">پروفایل v1.3</div>
-                                    <div class="percent">45%</div>
-                                </div>
-                                <div class="progress progress-striped active">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                        <span class="sr-only">45% Complete</span>
-                                    </div>
+                                    <div class="desc"><?php echo $news_list['email'];?></div>
+                                    <div class="percent"><?php  echo persianNumber(_getDate(strtotime($news_list['created_at'])));?></div>
                                 </div>
 
                             </a>
                         </li>
+                        <?php endforeach;?>
+
+
+
+
                         <li class="external">
-                            <a href="#">برنامه های بیشتر</a>
+                            <a href="<?php echo base_url('panel/profile/list_newsletter')?>">نمایش تمام ثبت نام ها</a>
                         </li>
                     </ul>
                 </li>
@@ -126,63 +77,36 @@
                 <li id="header_inbox_bar" class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="icon-envelope-alt"></i>
-                        <span class="badge bg-important">5</span>
+                        <span class="badge bg-important"><?php echo $count; ?></span>
                     </a>
                     <ul class="dropdown-menu extended inbox">
                         <div class="notify-arrow notify-arrow-red"></div>
                         <li>
-                            <p class="red">شما 5 پیام جدید دارید</p>
+                            <p class="red">شما <?php echo $count; ?> پیام جدید دارید</p>
                         </li>
+
+                        <?php
+                        foreach ($contact as $contact_list):
+                        ?>
                         <li>
-                            <a href="#">
+                            <a href="<?php echo base_url().'panel/profile/read_contact/'.$contact_list['id'];?>">
                                     <span class="photo">
                                         <img alt="avatar" src="<?php echo PUBLIC_PATH; ?>panel/img/avatar-mini.jpg"></span>
                                 <span class="subject">
-                                        <span class="from"><?php echo 'admin';?></span>
+                                        <span class="from"><?php echo $contact_list['name'];?></span>
                                         <span class="time">همین حالا</span>
                                     </span>
-                                <span class="message">سلام،متن پیام نمایشی جهت تست
+                                <span class="message"><?php echo word_limiter($contact_list['subject'],10);?>
                                     </span>
                             </a>
                         </li>
+
+                        <?php
+                        endforeach;
+                        ?>
+
                         <li>
-                            <a href="#">
-                                    <span class="photo">
-                                        <img alt="avatar" src="<?php echo PUBLIC_PATH; ?>panel/img/avatar-mini2.jpg"></span>
-                                <span class="subject">
-                                        <span class="from">ایمان مدائنی</span>
-                                        <span class="time">10 دقیقه قبل</span>
-                                    </span>
-                                <span class="message">سلام، چطوری شما؟
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                    <span class="photo">
-                                        <img alt="avatar" src="<?php echo PUBLIC_PATH; ?>panel/img/avatar-mini3.jpg"></span>
-                                <span class="subject">
-                                        <span class="from">صبا ذاکر</span>
-                                        <span class="time">3 ساعت قبل</span>
-                                    </span>
-                                <span class="message">چه پنل مدیریتی فوق العاده ایی
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                    <span class="photo">
-                                        <img alt="avatar" src="<?php echo PUBLIC_PATH; ?>panel/img//avatar-mini4.jpg"></span>
-                                <span class="subject">
-                                        <span class="from">مسعود شریفی</span>
-                                        <span class="time">همین حالا</span>
-                                    </span>
-                                <span class="message">سلام،متن پیام نمایشی جهت تست
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">نمایش تمامی پیام ها</a>
+                            <a href="<?php echo base_url().'panel/profile/list_contact';?>">نمایش تمامی پیام ها</a>
                         </li>
                     </ul>
                 </li>
@@ -192,55 +116,32 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                         <i class="icon-bell-alt"></i>
-                        <span class="badge bg-warning">7</span>
+                        <span class="badge bg-warning"><?php echo $count_comment; ?></span>
                     </a>
                     <ul class="dropdown-menu extended notification">
                         <div class="notify-arrow notify-arrow-yellow"></div>
                         <li>
-                            <p class="yellow">شما 7 اعلام جدید دارید</p>
+                            <p class="yellow">شما <?php echo $count_comment; ?> دیدگاه جدید دارید</p>
                         </li>
+                        <?php
+                        foreach ($comments as $comment_list):
+                        ?>
                         <li>
                             <a href="#">
                                 <span class="label label-danger"><i class="icon-bolt"></i></span>
-                                سرور شماره 3 توقف کرده
+                                <?php echo $comment_list['subject'];?>
 
-                                <span class="small italic">34 دقیقه قبل</span>
+                                <span class="small italic"></span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-warning"><i class="icon-bell"></i></span>
-                                سرور شماره 4 بارگزاری نمی شود
 
-                                <span class="small italic">1 ساعت قبل</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-danger"><i class="icon-bolt"></i></span>
-                                پنل مدیریت 24% پیشرفت داشته است
+                        <?php
+                        endforeach;
+                        ?>
 
-                                <span class="small italic">4 ساعت قبل</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-success"><i class="icon-plus"></i></span>
-                                ثبت نام کاربر جدید
 
-                                <span class="small italic">همین حالا</span>
-                            </a>
-                        </li>
                         <li>
-                            <a href="#">
-                                <span class="label label-info"><i class="icon-bullhorn"></i></span>
-                                برنامه پیام خطا دارد
-
-                                <span class="small italic">10 دقیقه قبل</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">نمایش تمامی اعلام ها</a>
+                            <a href="<?php echo base_url().'panel/profile/list_coment';?>">نمایش تمامی دیدگاه ها</a>
                         </li>
                     </ul>
                 </li>
@@ -258,15 +159,15 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <img alt="" src="<?php echo PUBLIC_PATH; ?>panel/img/avatar1_small.jpg">
-                        <span class="username"><?php echo 'admin';?></span>
+                        <span class="username"><?php echo $this->name;?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <div class="log-arrow-up"></div>
-                        <li><a href="#"><i class=" icon-suitcase"></i>پروفایل</a></li>
+                        <li><a href="<?php echo base_url().'panel/profile'?>"><i class=" icon-suitcase"></i>پروفایل</a></li>
                         <li><a href="#"><i class="icon-cog"></i>تنظیمات</a></li>
-                        <li><a href="#"><i class="icon-bell-alt"></i>اعلام ها</a></li>
-                        <li><a href="<?php echo base_url('logout');?>"><i class="icon-key"></i>خروج</a></li>
+                        <li><a href="<?php echo base_url().'panel/profile/list_coment';?>"><i class="icon-bell-alt"></i>اعلام ها</a></li>
+                        <li><a href="<?php echo base_url('site/login/logout');?>"><i class="icon-key"></i>خروج</a></li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -281,7 +182,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu">
                 <li class="active">
-                    <a class="" href="index.html">
+                    <a class="" href="<?php echo base_url().'panel/dashboard';?>">
                         <i class="icon-dashboard"></i>
                         <span>صفحه اصلی</span>
                     </a>
@@ -315,12 +216,21 @@
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="<?php echo site_url('panel/menue/list_menue');?>">لیست منو ها</a></li>
-                        <li><a class="" href="<?php echo site_url('panel/menue/index');?>">افزودن منو جدید</a></li>
+                        <li><a class="" href="<?php echo site_url('panel/list_menue/list');?>">لیست منو ها</a></li>
+                        <li><a class="" href="<?php echo site_url('panel/list_menue/index');?>">افزودن منو جدید</a></li>
                     </ul>
                 </li>
-
-
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon-book"></i>
+                        <span>مدیریت صفحه ها</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="<?php echo site_url('panel/page/list');?>">لیست صفحه ها </a></li>
+                        <li><a class="" href="<?php echo site_url('panel/page/index');?>">افزودن صفحه جدید </a></li>
+                    </ul>
+                </li>
                 <li>
                     <a class="" href="<?php echo site_url();?>">
                         <i class="icon-user"></i>
